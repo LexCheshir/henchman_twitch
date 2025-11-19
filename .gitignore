@@ -1,4 +1,4 @@
-_local*
+*_local*
 
 # Python-generated files
 __pycache__/

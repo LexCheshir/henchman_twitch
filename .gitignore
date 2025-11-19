@@ -1,4 +1,7 @@
 *_local*
+*.db*
+*tokens.json
+.env
 
 # Python-generated files
 __pycache__/

@@ -226,7 +226,7 @@ async def setup_database(
 #         client_id=CLIENT_ID, client_secret=CLIENT_SECRET
 #     ) as client:
 #         await client.login()
-#         user = await client.fetch_users(logins=["lexcheshir", "henchman"])
+#         user = await client.fetch_users(logins=["LexCheshir", "LexPlural"])
 #         for u in user:
 #             print(f"User: {u.name} - ID: {u.id}")
 

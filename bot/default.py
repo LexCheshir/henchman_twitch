@@ -36,7 +36,11 @@ class SimpleBot(commands.AutoBot):
 
     async def setup_hook(self) -> None:
         for component in self.components:
-            await self.add_component(component(self))
+            await self.add_component(
+                component(
+                    bot=self,
+                )
+            )
 
     async def event_oauth_authorized(
         self, payload: twitchio.authentication.UserTokenPayload

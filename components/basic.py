@@ -8,14 +8,27 @@ class BasisComponent(commands.Component):
     # An example of a Component with some simple commands and listeners
     # You can use Components within modules for a more organized codebase and hot-reloading.
 
-    def __init__(self, *args, **kwargs) -> None:
-        pass
+    def __init__(self, *args, bot: commands.AutoBot, **kwargs) -> None:
+        self.bot = bot
+        self.owner = bot.create_partialuser(user_id=bot.owner_id)
 
     # An example of listening to an event
     # We use a listener in our Component to display the messages received.
     @commands.Component.listener()
     async def event_message(self, payload: twitchio.ChatMessage) -> None:
         print(f"[{payload.broadcaster.name}] - {payload.chatter.name}: {payload.text}")
+        # this thing is recursive as is
+        # await self.owner.send_message(
+        #     sender=self.bot.user,
+        #     message=f"Message from {payload.chatter.name}: {payload.text}",
+        # )
+
+    # @commands.command()
+    # async def test(self, ctx: commands.Context, id: str) -> None:
+    #     await ctx.chatter.send_shoutout(to_broadcaster=id, moderator=id)
+    #     await ctx.send(
+    #         f"There should be a shoutout for {ctx.chatter}, if no smth went wrong."
+    #     )
 
     @commands.command()
     async def hi(self, ctx: commands.Context) -> None:
